@@ -132,5 +132,45 @@ class Matritsa {
         }
         return s;
     }
+    public Matritsa ymnoshenie(Matritsa other) throws MatritsaExeprion {
+        if (this.stolbtsy != other.stroki) {
+            throw new MatritsaExeprion("Умножить нельзя столбцы первой матрицы != строки второй матрицы");
+        }
+        Matritsa res = new Matritsa(this.stroki, other.stolbtsy);
+        for (int i = 0; i < this.stroki; i++) {
+            for (int j = 0; j < other.stolbtsy; j++) {
+                CompleksnieChisla sum = new CompleksnieChisla(0.0, 0.0);
+                for (int k = 0; k < this.stolbtsy; k++) {
+                    sum = sum.closhenie(this.matr[i][k].ymn(other.matr[k][j]));
+                }
+                res.matr[i][j] = sum;
+            }
+        }
+        return res;
+    }
+
+    public CompleksnieChisla opredelitel() throws MatritsaExeprion {
+        if (this.stroki != this.stolbtsy) {
+            throw new MatritsaExeprion("Определитель существует только для квадратных матриц");
+        }
+        int n = this.stroki;
+        CompleksnieChisla[][] a = new CompleksnieChisla[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = this.matr[i][j];
+            }
+        }
+        CompleksnieChisla det = new CompleksnieChisla(1.0, 0.0);
+        for (int i = 0; i < n; i++) {
+            int pivot = -1;
+            for (int row = i; row < n; row++) {
+                if (a[row][i].abssqrt() > 0.0) {
+                    pivot = row;
+                    break;
+                }
+            }
+            if (pivot == -1) {
+                return new CompleksnieChisla(0.0, 0.0);
+            }
 }
 
