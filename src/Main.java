@@ -11,12 +11,7 @@ class CompleksnieChisla {
         this.vesh = vesh;
         this.mnim = mnim;
     }
-    public double getVesh() {
-        return vesh;
-    }
-    public double getMnim() {
-        return mnim;
-    }
+
     public CompleksnieChisla closhenie(CompleksnieChisla other) {
         return new CompleksnieChisla(this.vesh + other.vesh, this.mnim + other.mnim);
     }
