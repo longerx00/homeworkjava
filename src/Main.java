@@ -68,18 +68,6 @@ class Matritsa {
         }
     }
 
-    public int getStroki() {
-        return stroki;
-    }
-
-    public int getStolbtsy() {
-        return stolbtsy;
-    }
-
-    public CompleksnieChisla get(int i, int j) {
-        return matr[i][j];
-    }
-
     public void set(int i, int j, CompleksnieChisla val) {
         matr[i][j] = val;
     }
