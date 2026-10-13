@@ -68,17 +68,6 @@ class Matritsa {
         }
     }
 
-    public Matritsa(CompleksnieChisla[][] massiv) {
-        this.stroki = massiv.length;
-        this.stolbtsy = massiv[0].length;
-        this.matr = new CompleksnieChisla[stroki][stolbtsy];
-        for (int i = 0; i < stroki; i++) {
-            for (int j = 0; j < stolbtsy; j++) {
-                this.matr[i][j] = massiv[i][j];
-            }
-        }
-    }
-
     public int getStroki() {
         return stroki;
     }
